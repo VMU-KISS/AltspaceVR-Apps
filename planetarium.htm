@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>PLANETIRUM</title>
+<script src="http://sdk.altvr.com/libs/three.js/r73/build/three.js"></script>
+<script src="http://sdk.altvr.com/libs/altspace.js/0.5.3/altspace.min.js"></script>
+<script src="http://sdk.altvr.com/libs/three.js/r73/examples/js/loaders/OBJMTLLoader.js"></script>
+<script src="http://sdk.altvr.com/libs/three.js/r73/examples/js/loaders/MTLLoader.js"></script>
+<script src="js/planets.js"></script>
+</head>
+<body>
+<script>
+
+// Setup ThreeJS Scene for AltSpaceVR (Start)
+var scene = new THREE.Scene();
+var renderer = altspace.getThreeJSRenderer();
+// Setup ThreeJS Scene for AltSpaceVR (End)
+
+var materialCreator = new THREE.MTLLoader.MaterialCreator();
+materialCreator.crossOrigin = 'anonymous';
+
+var url = 'images/sets/set1.jpg';
+var texture = materialCreator.loadTexture(url);
+var skyboxani = 0;
+var constellationsview = 0;
+var loader = new THREE.TextureLoader();
+var url1a = 'images/sets/set1.jpg';
+var url2a = 'images/sets/set2.jpg';
+var url3a = 'images/sets/set3.jpg';
+var url4a = 'images/sets/set4.jpg';
+var url5a = 'images/sets/set5.jpg';
+var url6a = 'images/sets/set6.jpg';
+var url1b = 'images/sets/set1wl.jpg';
+var url2b = 'images/sets/set2wl.jpg';
+var url3b = 'images/sets/set3wl.jpg';
+var url4b = 'images/sets/set4wl.jpg';
+var url5b = 'images/sets/set5wl.jpg';
+var url6b = 'images/sets/set6wl.jpg';
+var url1c = 'images/sets/set1tn.jpg';
+var url2c = 'images/sets/set2tn.jpg';
+var url3c = 'images/sets/set3tn.jpg';
+var url4c = 'images/sets/set4tn.jpg';
+var url5c = 'images/sets/set5tn.jpg';
+var url6c = 'images/sets/set6tn.jpg';
+var texture1a = loader.load(url1a);
+var texture2a = loader.load(url2a);
+var texture3a = loader.load(url3a);
+var texture4a = loader.load(url4a);
+var texture5a = loader.load(url5a);
+var texture6a = loader.load(url6a);
+var texture1b = loader.load(url1b);
+var texture2b = loader.load(url2b);
+var texture3b = loader.load(url3b);
+var texture4b = loader.load(url4b);
+var texture5b = loader.load(url5b);
+var texture6b = loader.load(url6b);
+var texture1c = loader.load(url1c);
+var texture2c = loader.load(url2c);
+var texture3c = loader.load(url3c);
+var texture4c = loader.load(url4c);
+var texture5c = loader.load(url5c);
+var texture6c = loader.load(url6c);
+
+
+var geometry = new THREE.BoxGeometry(100, 100, 100);
+var material = new THREE.MeshBasicMaterial({color:'#ff0000'});
+var cube1 = new THREE.Mesh(geometry, material);
+cube1.scale.set(2, 2, 2);
+cube1.position.set(-1700, -200, 2500);
+scene.add(cube1);
+cube1.addEventListener('cursordown', function() {
+if (skyboxani == 0) {
+skyboxani = 1;
+} else {
+skyboxani = 0;
+}
+});
+
+var geometry = new THREE.BoxGeometry(100, 100, 100);
+var material = new THREE.MeshBasicMaterial({color:'#0000ff'});
+var cube2 = new THREE.Mesh(geometry, material);
+cube2.scale.set(2, 2, 2);
+cube2.position.set(-1200, -200, 2500);
+scene.add(cube2);
+cube2.addEventListener('cursordown', function() {
+if (constellationsview == 0) {
+B1.visible = true;
+B2.visible = true;
+B3.visible = true;
+B4.visible = true;
+B5.visible = true;
+B6.visible = true;
+constellationsview = 1;
+} else {
+B1.visible = false;
+B2.visible = false;
+B3.visible = false;
+B4.visible = false;
+B5.visible = false;
+B6.visible = false;
+constellationsview = 0;
+}
+});
+
+
+var pluto1 = Planets.createPluto();
+pluto1.scale.set(100, 100, 100);
+pluto1.position.x = 1000;
+pluto1.position.y = -200;
+pluto1.position.z = 2500;
+scene.add(pluto1)
+
+var makemake1 = Planets.createMakemake();
+makemake1.scale.set(100, 100, 100);
+makemake1.position.x = 1120;
+makemake1.position.y = -200;
+makemake1.position.z = 2500;
+scene.add(makemake1)
+
+var haumea1 = Planets.createHaumea();
+haumea1.scale.set(100, 100, 100);
+haumea1.position.x = 1240;
+haumea1.position.y = -200;
+haumea1.position.z = 2500;
+scene.add(haumea1)
+
+var eris1 = Planets.createEris();
+eris1.scale.set(100, 100, 100);
+eris1.position.x = 1360;
+eris1.position.y = -200;
+eris1.position.z = 2500;
+scene.add(eris1)
+
+var ceres1 = Planets.createCeres();
+ceres1.scale.set(100, 100, 100);
+ceres1.position.x = 1480;
+ceres1.position.y = -200;
+ceres1.position.z = 2500;
+scene.add(ceres1)
+
+var mercury2 = Planets.createMercury();
+mercury2.scale.set(100, 100, 100);
+mercury2.position.x = 2020;
+mercury2.position.y = -200;
+mercury2.position.z = 2500;
+scene.add(mercury2)
+
+var venus2 = Planets.createVenus();
+venus2.scale.set(100, 100, 100);
+venus2.position.x = 2140;
+venus2.position.y = -200;
+venus2.position.z = 2500;
+scene.add(venus2)
+
+var earth2 = Planets.createEarth();
+earth2.scale.set(100, 100, 100);
+earth2.position.x = 2260;
+earth2.position.y = -200;
+earth2.position.z = 2500;
+scene.add(earth2)
+
+var mars2 = Planets.createMars();
+mars2.scale.set(100, 100, 100);
+mars2.position.x = 2380;
+mars2.position.y = -200;
+mars2.position.z = 2500;
+scene.add(mars2)
+
+var jupiter2 = Planets.createJupiter();
+jupiter2.scale.set(100, 100, 100);
+jupiter2.position.x = 2140;
+jupiter2.position.y = -320;
+jupiter2.position.z = 2500;
+scene.add(jupiter2)
+
+var saturn2 = Planets.createSaturn();
+saturn2.scale.set(100, 100, 100);
+saturn2.position.x = 2020;
+saturn2.position.y = -80;
+saturn2.position.z = 2500;
+scene.add(saturn2)
+
+var uranus2 = Planets.createUranus();
+uranus2.scale.set(100, 100, 100);
+uranus2.position.x = 2380;
+uranus2.position.y = -80;
+uranus2.position.z = 2500;
+scene.add(uranus2)
+
+var neptune2 = Planets.createNeptune();
+neptune2.scale.set(100, 100, 100);
+neptune2.position.x = 2260;
+neptune2.position.y = -320;
+neptune2.position.z = 2500;
+scene.add(neptune2)
+
+var sun2 = Planets.createSun();
+sun2.scale.set(100, 100, 100);
+sun2.position.x = 1750;
+sun2.position.y = -200;
+sun2.position.z = 2500;
+scene.add(sun2)
+
+var moon2 = Planets.createMoon();
+moon2.scale.set(100, 100, 100);
+moon2.position.x = 1750;
+moon2.position.y = -320;
+moon2.position.z = 2500;
+scene.add(moon2)
+
+
+var sphereGeo = new THREE.SphereGeometry(300, 64, 64, Math.PI + 0.3, -2*Math.PI);
+var material = new THREE.MeshBasicMaterial({color:'#ffffff', map: texture1a});
+sphereMesh = new THREE.Mesh(sphereGeo, material);
+sphereMesh.position.set(1100, -250, -400);
+sphereMesh.scale.z = 1;
+scene.add(sphereMesh);
+
+var geometry1 = new THREE.BoxGeometry(200, 100, 1);
+var material1 = new THREE.MeshBasicMaterial({color:'#ffffff', map: texture1b});
+var walllabel = new THREE.Mesh(geometry1, material1);
+walllabel.scale.set(2, 2, 2);
+walllabel.position.set(1600, -250, -730);
+scene.add(walllabel);
+
+var material1 = new THREE.MeshBasicMaterial({color:'#ffffff', map: texture1c});
+var walllabel1 = new THREE.Mesh(geometry1, material1);
+walllabel1.position.set(2140, 120, -730);
+scene.add(walllabel1);
+walllabel1.addEventListener('cursordown', function()
+{
+sphereMesh.material.map = texture1a;
+walllabel.material.map = texture1b;
+});
+
+var material1 = new THREE.MeshBasicMaterial({color:'#ffffff', map: texture2c});
+var walllabel2 = new THREE.Mesh(geometry1, material1);
+walllabel2.position.set(2140, 10, -730);
+scene.add(walllabel2);
+walllabel2.addEventListener('cursordown', function()
+{
+sphereMesh.material.map = texture2a;
+walllabel.material.map = texture2b;
+});
+
+var material1 = new THREE.MeshBasicMaterial({color:'#ffffff', map: texture3c});
+var walllabel3 = new THREE.Mesh(geometry1, material1);
+walllabel3.position.set(2140, -100, -730);
+scene.add(walllabel3);
+walllabel3.addEventListener('cursordown', function()
+{
+sphereMesh.material.map = texture3a;
+walllabel.material.map = texture3b;
+});
+
+var material1 = new THREE.MeshBasicMaterial({color:'#ffffff', map: texture4c});
+var walllabel4 = new THREE.Mesh(geometry1, material1);
+walllabel4.position.set(2140, -210, -730);
+scene.add(walllabel4);
+walllabel4.addEventListener('cursordown', function()
+{
+sphereMesh.material.map = texture4a;
+walllabel.material.map = texture4b;
+});
+
+var material1 = new THREE.MeshBasicMaterial({color:'#ffffff', map: texture5c});
+var walllabel5 = new THREE.Mesh(geometry1, material1);
+walllabel5.position.set(2140, -320, -730);
+scene.add(walllabel5);
+walllabel5.addEventListener('cursordown', function()
+{
+sphereMesh.material.map = texture5a;
+walllabel.material.map = texture5b;
+});
+
+var material1 = new THREE.MeshBasicMaterial({color:'#ffffff', map: texture6c});
+var walllabel6 = new THREE.Mesh(geometry1, material1);
+walllabel6.position.set(2140, -430, -730);
+scene.add(walllabel6);
+walllabel6.addEventListener('cursordown', function()
+{
+sphereMesh.material.map = texture6a;
+walllabel.material.map = texture6b;
+});
+
+	
+var MercuryDistance = 120 + 4 * 9;
+var MercuryPosition = Math.random() * 3.14;
+var MercuryVelocity = (1 / 0.2409) * 0.005;
+
+var VenusDistance = 120 + 8.6 * 9;
+var VenusPosition = Math.random() * 3.14;
+var VenusVelocity = (1 / 0.616) * 0.005;
+
+var EarthDistance = 120 + 13.2 * 9;
+var EarthPosition = Math.random() * 3.14;
+var EarthVelocity = (1 / 1) * 0.005;
+
+var MarsDistance = 120 + 18 * 9;
+var MarsPosition = Math.random() * 3.14;
+var MarsVelocity = (1 / 1.9) * 0.005;
+
+var JupiterDistance = 110 + 23.4 * 9;
+var JupiterPosition = Math.random() * 3.14;
+var JupiterVelocity = (1 / 12) * 0.005;
+
+var SaturnDistance = 90 + 33 * 9;
+var SaturnPosition = Math.random() * 3.14;
+var SaturnVelocity = (1 / 12) * 0.005;
+
+var UranusDistance = 130 + 37.6 * 9;
+var UranusPosition = Math.random() * 3.14;
+var UranusVelocity = (1 / 84) * 0.005;
+
+var NeptuneDistance = 135 + 42.2 * 9;
+var NeptunePosition = Math.random() * 3.14;
+var NeptuneVelocity = (1 / 165) * 0.005;
+
+var sun1 = Planets.createSun();
+sun1.scale.set(120, 120, 120);
+sun1.position.y = -200;
+scene.add(sun1)
+
+var mercury1 = Planets.createMercury();
+mercury1.scale.set(9.6, 9.6, 9.6);
+mercury1.position.y = -200;
+scene.add(mercury1)
+
+var venus1 = Planets.createVenus();
+venus1.scale.set(24, 24, 24);
+venus1.position.y = -200;
+scene.add(venus1)
+
+var earth1 = Planets.createEarth();
+earth1.scale.set(25.2, 25.2, 25.2);
+earth1.position.y = -200;
+scene.add(earth1)
+
+var mars1 = Planets.createMars();
+mars1.scale.set(13.2, 13.2, 13.2);
+mars1.position.y = -200;
+scene.add(mars1)
+
+var jupiter1 = Planets.createJupiter();
+jupiter1.scale.set(39, 39, 39);
+jupiter1.position.y = -200;
+scene.add(jupiter1)
+
+var saturn1 = Planets.createSaturn();
+saturn1.scale.set(43, 43, 43);
+saturn1.position.y = -200;
+scene.add(saturn1)
+
+var uranus1 = Planets.createUranus();
+uranus1.scale.set(28, 28, 28);
+uranus1.position.y = -200;
+scene.add(uranus1)
+
+var neptune1 = Planets.createNeptune();
+neptune1.scale.set(32, 32, 32);
+neptune1.position.y = -200;
+scene.add(neptune1)
+
+var geometry = new THREE.BoxGeometry(1, 1, 1);
+var materiala1 = new THREE.MeshBasicMaterial({color:'#ffffff'});
+var A1 = new THREE.Mesh(geometry, materiala1);
+A1.scale.set(0.1,570,570);
+A1.position.set(0, -225, -285);
+A1.rotation.y = 90 * (Math.PI / 180);
+
+var materiala2 = new THREE.MeshBasicMaterial({color:'#ffffff'});
+var A2 = new THREE.Mesh(geometry, materiala2);
+A2.scale.set(0.1,570,570);
+A2.position.x = 285;
+A2.position.y = -225;
+
+var materiala3 = new THREE.MeshBasicMaterial({color:'#ffffff'});
+var A3 = new THREE.Mesh(geometry, materiala3);
+A3.scale.set(0.1,570,570);
+A3.position.x = -285;
+A3.position.y = -225;
+
+var materiala4 = new THREE.MeshBasicMaterial({color:'#ffffff'});
+var A4 = new THREE.Mesh(geometry, materiala4);
+A4.scale.set(0.1,570,570);
+A4.position.z = 285;
+A4.rotation.y = 90 * (Math.PI / 180);
+A4.position.y = -225;
+
+var materiala5 = new THREE.MeshBasicMaterial({color:'#ffffff'});
+var A5 = new THREE.Mesh(geometry, materiala5);
+A5.scale.set(570,0.1,570);
+A5.position.y = 285;
+A5.position.y = 60;
+
+var materiala6 = new THREE.MeshBasicMaterial({color:'#ffffff'});
+var A6 = new THREE.Mesh(geometry, materiala6);
+A6.scale.set(570,0.1,570);
+A6.position.y = -285.1;
+A6.position.y = -510;
+
+var materialb1 = new THREE.MeshBasicMaterial({color:'#ffffff'});
+var B1 = new THREE.Mesh(geometry, materialb1);
+B1.scale.set(0.01,570,570);
+B1.position.set(0, -225, -285);
+B1.rotation.y = 90 * (Math.PI / 180);
+
+var materialb2 = new THREE.MeshBasicMaterial({color:'#ffffff'});
+var B2 = new THREE.Mesh(geometry, materialb2);
+B2.scale.set(0.01,570,570);
+B2.position.x = 285;
+B2.position.y = -225;
+
+var materialb3 = new THREE.MeshBasicMaterial({color:'#ffffff'});
+var B3 = new THREE.Mesh(geometry, materialb3);
+B3.scale.set(0.01,570,570);
+B3.position.x = -285;
+B3.position.y = -225;
+
+var materialb4 = new THREE.MeshBasicMaterial({color:'#ffffff'});
+var B4 = new THREE.Mesh(geometry, materialb4);
+B4.scale.set(0.01,570,570);
+B4.position.z = 285;
+B4.rotation.y = 90 * (Math.PI / 180);
+B4.position.y = -225;
+
+var materialb5 = new THREE.MeshBasicMaterial({color:'#ffffff'});
+var B5 = new THREE.Mesh(geometry, materialb5);
+B5.scale.set(570,0.01,570);
+B5.position.y = 285;
+B5.position.y = 60;
+
+var materialb6 = new THREE.MeshBasicMaterial({color:'#ffffff'});
+var B6 = new THREE.Mesh(geometry, materialb6);
+B6.scale.set(570,0.01,570);
+B6.position.y = -285.1;
+B6.position.y = -510;
+
+group = new THREE.Object3D();
+group.add( A1 );
+group.add( A2 );
+group.add( A3 );
+group.add( A4 );
+group.add( A5 );
+group.add( A6 );
+scene.add( group );
+group.scale.set(1000,1000,1000);
+group.position.y = 300000;
+A1.material.map = materialCreator.loadTexture('space/front.jpg');
+A2.material.map = materialCreator.loadTexture('space/right.jpg');
+A3.material.map = materialCreator.loadTexture('space/left.jpg');
+A4.material.map = materialCreator.loadTexture('space/back.jpg');
+A5.material.map = materialCreator.loadTexture('space/top.jpg');
+A6.material.map = materialCreator.loadTexture('space/bottom.jpg');
+
+B1.material.map = materialCreator.loadTexture('figures/front.png');
+B2.material.map = materialCreator.loadTexture('figures/right.png');
+B3.material.map = materialCreator.loadTexture('figures/left.png');
+B4.material.map = materialCreator.loadTexture('figures/back.png');
+B5.material.map = materialCreator.loadTexture('figures/top.png');
+B6.material.map = materialCreator.loadTexture('figures/bottom.png');
+B1.material.transparent = true; 
+B2.material.transparent = true; 
+B3.material.transparent = true; 
+B4.material.transparent = true; 
+B5.material.transparent = true; 
+B6.material.transparent = true; 
+
+B1.visible = false;
+B2.visible = false;
+B3.visible = false;
+B4.visible = false;
+B5.visible = false;
+B6.visible = false;
+
+group1 = new THREE.Object3D();
+group1.add( B1 );
+group1.add( B2 );
+group1.add( B3 );
+group1.add( B4 );
+group1.add( B5 );
+group1.add( B6 );
+scene.add( group1 );
+
+group1.scale.set(996,996,996);
+group1.position.y = 299999;
+
+altspace.open('http://vmukiss.norybiak.com/test/html/popup.htm', '_experience', {
+icon: 'http://vmukiss.norybiak.com/test/html/favicon.png',
+hidden: true
+}).then(function (_popup) {
+popup = _popup;
+});
+
+// Start AltSpaceVR Render (Start)
+function animate() {
+	requestAnimationFrame(animate);
+	sun1.rotation.y += 0.001;
+
+MercuryPosition += MercuryVelocity
+mercury1.position.x = MercuryDistance*Math.sin(MercuryPosition);
+mercury1.position.z = MercuryDistance*Math.cos(MercuryPosition);
+
+VenusPosition += VenusVelocity
+venus1.position.x = VenusDistance*Math.sin(VenusPosition);
+venus1.position.z = VenusDistance*Math.cos(VenusPosition);
+
+EarthPosition += EarthVelocity
+earth1.position.x = EarthDistance*Math.sin(EarthPosition);
+earth1.position.z = EarthDistance*Math.cos(EarthPosition);
+
+MarsPosition += MarsVelocity
+mars1.position.x = MarsDistance*Math.sin(MarsPosition);
+mars1.position.z = MarsDistance*Math.cos(MarsPosition);
+
+JupiterPosition += JupiterVelocity
+jupiter1.position.x = JupiterDistance*Math.sin(JupiterPosition);
+jupiter1.position.z = JupiterDistance*Math.cos(JupiterPosition);
+
+SaturnPosition += SaturnVelocity
+saturn1.position.x = SaturnDistance*Math.sin(SaturnPosition);
+saturn1.position.z = SaturnDistance*Math.cos(SaturnPosition);
+
+SaturnPosition += SaturnVelocity
+saturn1.position.x = SaturnDistance*Math.sin(SaturnPosition);
+saturn1.position.z = SaturnDistance*Math.cos(SaturnPosition);
+
+UranusPosition += UranusVelocity
+uranus1.position.x = UranusDistance*Math.sin(UranusPosition);
+uranus1.position.z = UranusDistance*Math.cos(UranusPosition);
+
+NeptunePosition += NeptuneVelocity
+neptune1.position.x = NeptuneDistance*Math.sin(NeptunePosition);
+neptune1.position.z = NeptuneDistance*Math.cos(NeptunePosition);
+
+if (skyboxani == 1) {
+	group.rotation.y += 0.0001;
+	group1.rotation.y += 0.0001;
+}
+	renderer.render(scene);
+
+}
+animate();
+// Start AltSpaceVR Render (End)
+
+</script>
+</body>
+</html> 
