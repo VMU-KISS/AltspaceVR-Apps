@@ -1,0 +1,5 @@
+newmtl Material10
+Kd 1 1 1
+illum 0
+map_Kd cancel.jpg
+
